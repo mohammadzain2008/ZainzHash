@@ -19,7 +19,7 @@ You might know hashes like <code>md5</code> and <code>SHA-1</code> which are use
 </ol>
 
 <h3>Advantage and Disadvantage</h3>
-<h4>Advantages</h4>
+<h4>Advantage</h4>
 <ul>
     <li>Huge piece of text even bigger than 15000 words gets reduced to smaller than 10 letters as <code>Hi I am Mohammad Zain and I am currently writing the README.md file of the ZainzHash!</code> changes to <code>a9r</code> which means that 182 letters are hashed and compressed to just 3 characters.</li>
 </ul>
@@ -50,4 +50,19 @@ You might know hashes like <code>md5</code> and <code>SHA-1</code> which are use
     <li>Finally the <code>grand_sum</code> is converted to <code>base 32</code> and returned.</li>
 
 </ol>
+
+<h3>Advantage and Disadvantage <i>(In Comparison to previous version)</i></h3>
+<h4>Advantage</h4>
+<ul>
+    <li>The most valuable advantage is that the hash has an ultimate security in comparison to previous version of the hash. No two or more words, sentences, characters share a single hash. In the previous version, <code>ad</code> and <code>bc</code> shared a common hash <code>8t</code> while as in this version, <code>ad</code> and <code>bc</code> have different hashes <i>viz.</i> <code>7rmg</code> and <code>7s88</code> respectively.</li>
+</ul>
+<h4>Disadvantage</h4>
+<ul>
+    <li>The previous version had one good thing in it that thousands of letters were reduced to few characters as: <code>Hi. My name is Zain, I am 13 years old and I am a software developer and love to code from web development.</code> was reduced to <code>csi</code> but in this version the same thing <code>Hi. My name is Zain, I am 13 years old and I am a software developer and love to code from web development.</code> becomes <code>3r2o16</code>.</li>
+</ul>
+
+<h3>Usage</h3>
+<p>To use this hash in any of your projects, especially <b>node.js</b> projects, this hash may come handy while writing some code for the backend. The syntax of the function is very simple: <code><b>ZainzHashV2</b>(<i>string</i>)</code></p>
+<p>For example: <br><code><b>ZainzHashV2</b>(<i>"This is a string"</i>)</code> will return <code>3vv04</code> and writing: <br> <code><b>ZainzHashV2</b>(<i>1</i>)</code> will first change the numeric 1 to a string i.e "1" and will return <code>1kku</code> <br> Every input of any type is changed into a string.</p>
+
 
