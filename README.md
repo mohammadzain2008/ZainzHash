@@ -7,7 +7,7 @@ You might know hashes like <code>md5</code> and <code>SHA-1</code> which are use
 
 # Versions
 <h2 id="version-1">ZainzHashV1</h2>
-<p>The version 1 of the hash called using <code><b>ZainzHashV1</b>()</code> works in a very simple way yet it is very difficult to break the hash.
+<p>The version 1 of the hash called using <code><b>ZainzHashV1</b>()</code> works in a very simple way yet it is very difficult to break the hash. </p>
 <h3>Method</h3>
 <ol>
   <li><b>ASCII Codes</b> of every character are obtained and are stored into an array.</li>
@@ -65,4 +65,35 @@ You might know hashes like <code>md5</code> and <code>SHA-1</code> which are use
 <p>To use this hash in any of your projects, especially <b>node.js</b> projects, this hash may come handy while writing some code for the backend. The syntax of the function is very simple: <code><b>ZainzHashV2</b>(<i>string</i>)</code></p>
 <p>For example: <br><code><b>ZainzHashV2</b>(<i>"This is a string"</i>)</code> will return <code>3vv04</code> and writing: <br> <code><b>ZainzHashV2</b>(<i>1</i>)</code> will first change the numeric 1 to a string i.e "1" and will return <code>1kku</code> <br> Every input of any type is changed into a string.</p>
 
+<h2 id="version-3">ZainzHashV3</h2>
+<p>The version 3 of the ZainzHash called using <code><b>ZainzHashV3</b>()</code> works in the same way as that of the other versions and comes with the a very high security level and outpasses ZainzHashV1() and ZainzHashV2(). It uses <code>ZainzHashV1</code> and  <code>ZainzHashV2</code> to process it's outcome.</p>
 
+<h3>Method</h3>
+<ol>
+    <li>Firstly, <code>ZainzHashV1()</code> and <code>ZainzHashV2()</code> are included into the function.</li>
+    <li>The input of the function is passed through <code>ZainzHashV2()</code> process and is stored in a variable <code>parse_1</code>.</li>
+    <li><code>%zhv3s</code> and <code>$zhv3s_2</code> which act as <i>salts</i> are stored in two variables <code>salt</code> and <code>salt_2</code> respectively.</li>
+    <li>An empty string <code>parse_1_string</code> is appended with <code>salt</code></li>
+    <li>Every character of the <code>parse_1</code> string is appended into the <code>parse_1_string</code>.</li>
+    <li>At last of the <code>parse_1_string</code> is added <code>salt</code>.</li>
+    <li>A variable <code>parse_2</code> stores the value of <code>ZainzHashV2(<i>parse_1_string</i></code>.</li>
+    <li>An empty string <code>parse_2_string</code> is appended with <code>salt_2</code>.</li>
+    <li>Every character of the <code>parse_2</code> string is appended into the <code>parse_2_string</code>.</li>
+    <li>At last of the <code>parse_2_string</code> is added <code>salt_2</code>.</li>
+    <li>A variable <code>parse_3</code> stores the value of <code>ZainzHashV2(<i>parse_2_string</i>)</code>.</li>
+    <li>Finally, a variable <code>parse_4</code> stores the value of <code>ZainzHashV1(<i>parse_3</i>)</code> and is returned.</li>
+</ol>
+
+<h3>Advantage and Disadvantage<i>In comparison to previous versions</i></h3>
+<h4>Advantage</h4>
+<ul>
+    <li>The advantage of version 3 is that it has the highest security as compared to previous versions since it has salts and back-to-back hashing.</li>
+</ul>
+<h4>Disadvantage</h4>
+<ul>
+    It has a small disadvantage which is that it occupies more space and takes much longer to process than other two. It also has a limit where it stops hashing since the number of characters exceed that of it's capacity.
+</ul>
+
+<h3>Usage</h3>
+<p>To use this hash in any of your projects, especially <b>node.js</b> projects, this hash may come handy while writing some code for the backend. The syntax of the function is very simple: <code><b>ZainzHashV3</b>(<i>string</i>)</code></p>
+<p>For example: <br><code><b>ZainzHashV3</b>(<i>"This is a string"</i>)</code> will return <code>ie</code> and writing: <br> <code><b>ZainzHashV3</b>(<i>1</i>)</code> will first change the numeric 1 to a string i.e "1" and will return <code>il</code> <br> Every input of any type is changed into a string.</p>
