@@ -97,3 +97,40 @@ You might know hashes like <code>md5</code> and <code>SHA-1</code> which are use
 <h3>Usage</h3>
 <p>To use this hash in any of your projects, especially <b>node.js</b> projects, this hash may come handy while writing some code for the backend. The syntax of the function is very simple: <code><b>ZainzHashV3</b>(<i>string</i>)</code></p>
 <p>For example: <br><code><b>ZainzHashV3</b>(<i>"This is a string"</i>)</code> will return <code>ie</code> and writing: <br> <code><b>ZainzHashV3</b>(<i>1</i>)</code> will first change the numeric 1 to a string i.e "1" and will return <code>il</code> <br> Every input of any type is changed into a string.</p>
+
+<h2 id="version-4">ZainzHashV4</h2>
+<p>The version 4 of the ZainzHash called using <code><b>ZainzHashV4</b>()</code> works in the same way as that of the other versions and comes with the a very high security level and outpasses ZainzHashV1() and ZainzHashV2()  and ZainzHashV3(). It uses <code>ZainzHashV3</code> which indirectly require <code>ZainzHashV1</code> and <code>ZainzHashV2</code> to process it's outcome.</p>
+
+<h3>Method</h3>
+<ol>
+    <li>Firstly, <code>ZainzHashV3()</code> is included into the function.</li>
+    <li>Then, the input is made to go through <code>ZainzHashV3</code> encryption.</li>
+    <li>Two salts <code>~%zhv4s_1l229__</code> and <code>~&zhv4s_2l230__</code> are stored in variables <code>salt</code> and <code>salt_2</code> respectively.</li>
+    <li><code>salt</code> is added at the start and in the end and in between is the encrypted data stored in a string <code>salt_string</code></li>
+    <li>The <b>ASCII</b> codes of each character of <code>salt_string</code> is stored in an array <code>salt_array</code></li>
+    <li>The sum of the items of <code>salt_array</code> is stored in a variable called <code>salt_sum</code></li>
+    <li>A variable <code>salt_difference</code> stores the value of <code>salt_sum - (salt_array[0] + salt_array[length-1]</code></li>
+    <li><code>salt_difference</code> and <code>salt_sum</code> is multiplied and stored in <code>product_sd</code></li>
+    <li>A variable <code>used_psd</code> holds the sum of <code>salt_sum</code>, <code>salt_difference</code> and <code>product_sd</code></li>
+    <li>A variable <code>used_psd16</code> holds the <b>hexadecimal</b> value of <code>used_psd</code></li>
+    <li>A string <code>salt_2_string</code> is appended with <code>salt_2</code> at the beginning and the end and in between them are the characters of <code>used_psd16</code> starting from index 0 and each of the characters is followed by <code>salt_2</code></li>
+    <li>The ASCII Codes of each of the character of <code>salt_2_string</code> is stored in an array called <code>salt_2_array</code></li>
+    <li>A numeric variable <code>final_res</code> is added by the items of <code>salt_2_array</code>. After every 52 additions, the 52nd element of <code>salt_2_array</code> is multiplied to <code>final_res</code>.</li>
+    <li>The number so obtained is converted to <code>base 32</code> and is returned.</li>
+</ol>
+
+<h3>Advantage and Disadvantage<i>(In comparison to previous versions)</i></h3>
+<h4>Advantage</h4>
+<ul>
+    <li>The advantage of version 4 is that it has the highest security as compared to previous versions since it has salts and version 3 of the hash which indirectly hashes it through <code>ZainzHashV1</code> and <code>ZainzHashV2</code>.</li>
+</ul>
+<h4>Disadvantage</h4>
+<ul>
+    It has a small disadvantage same as that of version 3 which is that it occupies more space and takes much longer to process than other two. It also has a limit where it stops hashing since the number of characters exceed that of it's capacity.
+</ul>
+
+<h3>Usage</h3>
+<p>To use this hash in any of your projects, especially <b>node.js</b> projects, this hash may come handy while writing some code for the backend. The syntax of the function is very simple: <code><b>ZainzHashV4</b>(<i>string</i>)</code></p>
+<p>For example: <br><code><b>ZainzHashV4</b>(<i>"This is a string"</i>)</code> will return <code>1fhu27</code> and writing: <br> <code><b>ZainzHashV4</b>(<i>1</i>)</code> will first change the numeric 1 to a string i.e "1" and will return <code>1fftu6</code> <br> Every input of any type is changed into a string.</p>
+
+
