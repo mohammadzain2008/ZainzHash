@@ -134,3 +134,41 @@ You might know hashes like <code>md5</code> and <code>SHA-1</code> which are use
 <p>For example: <br><code><b>ZainzHashV4</b>(<i>"This is a string"</i>)</code> will return <code>1fhu27</code> and writing: <br> <code><b>ZainzHashV4</b>(<i>1</i>)</code> will first change the numeric 1 to a string i.e "1" and will return <code>1fftu6</code> <br> Every input of any type is changed into a string.</p>
 
 
+<h2 id="version-5">ZainzHashV5</h2>
+<p>The version 5 of the ZainzHash called using <code><b>ZainzHashV5</b>()</code> differently and comes with the a most advanced security all other versions. It is a primary function i.e it doesn't use any other function to process it's outcome.</p>
+
+<h3>Method</h3>
+<ol>
+    <li>An array called <code>ascii_array</code> stores the <b>ASCII Codes</b> of each of the characters of the entered data.</li>
+    <li>Another array called <code>raw_array</code> stores numbers <b>[1, 2, 3, 4...., n]</b> where <b>n</b> is the length of entered data.</li>
+    <li>An array called <code>pro_array</code> is created where each of it's elements have the value of <code>raw_array[i] * ascii_array[length - (i + 1)]</code> or simply product of first and last element of the <code>raw_array</code> and <code>ascii_array</code>, the next element would be the product of second and the second last elements of the above two arrays and so on.</li>
+    <li>The number '99' is pushed into the <code>pro_array</code></li>
+    <li>A variable called <code>pro_sum</code> stores the sum of the items of <code>pro_array</code></li>
+    <li>The average of the <code>pro_array</code> is stored in a variable called <code>pro_avg</code></li>
+    <li>A variable <code>pro_median</code> stores the median value of <code>pro_array</code></li>
+    <li>The value of <code>pro_sum * (pro_arr[0] + pro_arr[length - 1])</code> is added to <code>pro_sum</code></li>
+    <li>The value of <code>pro_sum</code> is multiplied by <code>pro_avg</code> and <code>pro_median</code> independently</li>
+    <li>The updated value of <code>pro_sum</code> is increased by <code>pro_avg</code> and <code>pro_median</code> independently</li>
+    <li>The new value of <code>pro_sum</code> is multiplied by the sum of <code>pro_avg</code> and <code>pro_median</code></li>
+    <li>The final value of <code>pro_sum</code> is converted into a hexadecimal number and stored in a variable called <code>final</code></li>
+    <li>A process is made to run through which the number of digits of the return value becomes 32.</li>
+    <li>At last, the 32-digit answer is returned to the user.</li>
+</ol>
+
+
+<h3>Advantage and Disadvantage<i>(In comparison to previous versions)</i></h3>
+<h4>Advantage</h4>
+<ul>
+    <li>The advantage of version 5 is that it has the most advanced security as compared to previous versions since it has a lot of arithmetic applied onto data. </li>
+    <li>Secondly, it's doesn't use any other function to process it's outcome which makes it totally independent.</li>
+</ul>
+<h4>Disadvantage</h4>
+<ul>
+    <li>
+    The disadvantage of this version is that any length of data from 0 to any other number, it always returns a 32-bit answer. </li>
+    <li>Secondly, it has a limit of hashing till the data length of 262144 or 2^18 or 2.62144 x 10^5 which almost no other version had.</li>
+</ul>
+
+<h3>Usage</h3>
+<p>To use this hash in any of your projects, especially <b>node.js</b> projects, this hash may come handy while writing some code for the backend. The syntax of the function is very simple: <code><b>ZainzHashV5</b>(<i>string</i>)</code></p>
+<p>For example: <br><code><b>ZainzHashV5</b>(<i>"This is a string"</i>)</code> will return <code>0137c1914e1f1611124bea82c5864191</code> and writing: <br> <code><b>ZainzHashV5</b>(<i>1</i>)</code> will first change the numeric 1 to a string i.e "1" and will return <code>0123456789abcdef12345679a13a46b1</code> <br> Every input of any type is changed into a string.</p>
