@@ -1,4 +1,5 @@
 # ZainzHash
+<img src="https://codwithmozain.files.wordpress.com/2022/03/zainzhash.png?resize=438%2C438">
 Hashing is the very core of encryption in Computer Science as everybody knows. If you have ever worked with languages such as PHP and SQL, you might know really what a hash is.
 You might know hashes like <code>md5</code> and <code>SHA-1</code> which are used to encrypt text like in <b>MD5</b>, a simple message like: <br>
 <b>"This is MD5"</b> becomes <code>f6eda1d8b4b2dba89938db14285cf78a</code>
