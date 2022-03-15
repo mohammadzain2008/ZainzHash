@@ -7,7 +7,7 @@ You might know hashes like <code>md5</code> and <code>SHA-1</code> which are use
 <p>Just like those, I have created my own hash called <code><b>ZainzHash</b></code>. You can use it in <b>JavaScript</b> and it's <i>younger brothers</i> like <i>node.js</i>. I have also built an API for the same but it hasn't been deployed yet. After it's deployment, you can use it in almost any language like <b>Python</b> etc. </p>
 
 # Versions
-<h2 id="version-1">ZainzHashV1</h2>
+<h2 id="version-1">ZainzHashV1 <em>(Deprecated)</em></h2>
 <p>The version 1 of the hash called using <code><b>ZainzHashV1</b>()</code> works in a very simple way yet it is very difficult to break the hash. </p>
 <h3>Method</h3>
 <ol>
